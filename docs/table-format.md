@@ -74,6 +74,7 @@ This section defines the fields of the location table, in order.
 | 7 | Corporate     | `corporate`     | Text (select list)    | No       | Corporate office the location belongs to |
 | 8 | Company       | `company`       | Text (select list)    | No       | Company the location belongs to        |
 | 9 | Oth           | `other`         | Text                  | No       | Other information (see note)           |
+| 10 | Status | `status` | Text (select list) | Yes | Operational status of the location |
 
 ## Validation Rules
 
