@@ -58,3 +58,25 @@ This section defines the fields of the contractor details table, in order.
 - Column 8 must match `^[A-Z]{5}[0-9]{4}[A-Z]$`.
 - Column 9, when provided, must match `^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z][1-9A-Z]Z[0-9A-Z]$`.
 - Column 6 must contain only digits (optionally with a leading `+`).
+
+# Location Table Specification
+
+This section defines the fields of the location table, in order.
+
+| # | Field Name    | Field Key       | Type                  | Required | Notes                                  |
+|---|---------------|-----------------|-----------------------|----------|----------------------------------------|
+| 1 | Loc id        | `loc_id`        | Text                  | Yes      | Unique identifier for the location     |
+| 2 | Type location | `location_type` | Text (select list)    | Yes      | Kind of location                       |
+| 3 | Name          | `name`          | Text                  | Yes      | Name of the location                   |
+| 4 | Sub division  | `sub_division`  | Text (select list)    | No       | Sub division the location belongs to   |
+| 5 | Division      | `division`      | Text (select list)    | No       | Division the location belongs to       |
+| 6 | Circle        | `circle`        | Text (select list)    | No       | Circle the location belongs to         |
+| 7 | Corporate     | `corporate`     | Text (select list)    | No       | Corporate office the location belongs to |
+| 8 | Company       | `company`       | Text (select list)    | No       | Company the location belongs to        |
+| 9 | Oth           | `other`         | Text                  | No       | Other information (see note)           |
+
+## Validation Rules
+
+- Column 1 must be unique across all locations.
+- Columns 1–3 are mandatory.
+- Columns 4–9 may be left empty.
