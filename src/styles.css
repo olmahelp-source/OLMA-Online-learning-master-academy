@@ -129,3 +129,25 @@ td.actions { display: flex; gap: 6px; }
   border-radius: 6px;
   margin: 0 0 12px;
 }
+
+.error-list {
+  color: var(--danger);
+  margin: 0 0 12px;
+  padding-left: 20px;
+  font-size: 0.9rem;
+}
+
+.notice {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin: 0 0 12px;
+}
+
+.hint { color: var(--muted); font-size: 0.9rem; margin: 0 0 12px; }
+
+.toolbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.record-form textarea { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
