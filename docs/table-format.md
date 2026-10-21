@@ -125,3 +125,23 @@ This section defines which documents each bill type requires.
 - Column 1 must be one of the Type of Bill values in the bill type specification.
 - Column 2 must contain at least one document.
 - The same bill type may appear only once, unless the rows are distinguished by a different key.
+
+# Table Relationships
+
+This section defines how the tables link to each other.
+
+| # | Child table (field)                        | Relationship | Parent table (key)                          | Notes                                            |
+|---|--------------------------------------------|--------------|---------------------------------------------|--------------------------------------------------|
+| 1 | Bill table: Contractor                     | many-to-one  | Contractor details: Unique id (`contractor_id`) | A bill belongs to one contractor; a contractor has many bills |
+| 2 | Bill table: From DG Loc                    | many-to-one  | Location table: Loc id (`loc_id`)           | A bill originates from one location              |
+| 3 | Bill table: Type of Bill                   | many-to-one  | Bill type: Unique id (`bill_type_id`)       | Value comes from the bill type's Type of Bill    |
+| 4 | Bill table: Attachment                     | many-to-one  | Attachment list (to be defined)             | One attachment is chosen from the list           |
+| 5 | Bill type document requirements: Bill type | many-to-one  | Bill type: Type of Bill (`bill_type`)       | Each bill type has one requirements row          |
+| 6 | Location table: Division / Circle / Corporate / Company / Sub division | many-to-one | Location table: Loc id (`loc_id`) | Hierarchy within the same table; the parent location is one of these |
+
+## Rules
+
+- A child value must exist in the parent table before it is saved.
+- Deleting a parent that is referenced by a child row is not allowed.
+- Bill table Type of Bill and Document required are linked through the bill type: a bill's documents are the required documents for its bill type.
+- Bill table Attachment is checked against the documents in the bill type's required list.
