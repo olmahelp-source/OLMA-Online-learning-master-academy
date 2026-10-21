@@ -110,3 +110,18 @@ This section defines the fields of the bill type table, in order.
 - Column 1 must be unique across all bill types.
 - Column 2 must be one of the Type of Bill values.
 - Column 3 must be one of the Work type values.
+
+# Bill Type Document Requirements Specification
+
+This section defines which documents each bill type requires.
+
+| # | Field Name         | Field Key           | Type                       | Required | Notes                                   |
+|---|--------------------|---------------------|----------------------------|----------|-----------------------------------------|
+| 1 | Bill type          | `bill_type`         | Text (select list)         | Yes      | `Standard_voucher` or `Tender_bill`     |
+| 2 | Document required  | `documents_required`| List (multi-select)        | Yes      | Documents required for this bill type   |
+
+## Validation Rules
+
+- Column 1 must be one of the Type of Bill values in the bill type specification.
+- Column 2 must contain at least one document.
+- The same bill type may appear only once, unless the rows are distinguished by a different key.
