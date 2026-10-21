@@ -81,3 +81,32 @@ This section defines the fields of the location table, in order.
 - Column 1 must be unique across all locations.
 - Columns 1–3 are mandatory.
 - Columns 4–9 may be left empty.
+
+# Bill Type Specification
+
+This section defines the fields of the bill type table, in order.
+
+| # | Field Name   | Field Key    | Type                | Required | Notes                              |
+|---|--------------|--------------|---------------------|----------|------------------------------------|
+| 1 | Unique id    | `bill_type_id` | Text              | Yes      | Unique identifier for the bill type |
+| 2 | Type of Bill | `bill_type`  | Text (select list)  | Yes      | One of the values below            |
+| 3 | Work type    | `work_type`  | Text (select list)  | Yes      | One of the values below            |
+
+## Allowed Values
+
+**Type of Bill**
+- `Standard_voucher`
+- `Tender_bill`
+
+**Work type**
+- Transport vehicle
+- Labour
+- Transformer repair
+- Underground cable
+- Erection
+
+## Validation Rules
+
+- Column 1 must be unique across all bill types.
+- Column 2 must be one of the Type of Bill values.
+- Column 3 must be one of the Work type values.
